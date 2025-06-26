@@ -25,6 +25,7 @@ You will:
    npm start
    ```
 
+
 ## Files Included
 
 - `Week2-Assignment.md`: Detailed assignment instructions
@@ -61,3 +62,72 @@ Your work will be automatically submitted when you push to your GitHub Classroom
 - [Express.js Documentation](https://expressjs.com/)
 - [RESTful API Design Best Practices](https://restfulapi.net/)
 - [HTTP Status Codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) 
+
+# Week 2 Assignment - Express Product API
+
+This is a basic Product API built with **Node.js** and **Express.js**. It supports creating, reading, updating, and deleting products (CRUD) and uses middleware for authentication, logging, validation, and error handling.
+
+## How to Run the Server
+
+1. **Clone your repository**:
+   git clone https://github.com/YOUR-USERNAME/YOUR-REPO.git
+   cd YOUR-REPO
+
+Install dependencies: npm install
+Start the server: node server.js
+The server runs on http://localhost:3000 by default.
+
+## Authentication
+All /api/... routes are protected.
+
+You must add this header to every API request: x-api-key: 12345
+
+## API Endpoints
+* GET /
+Welcome message
+
+* GET /api/products
+Returns all products
+
+* GET /api/products/:id
+Get a product by ID (correct)
+404 if not found (wrong)
+
+* POST /api/products
+-Add a new product
+
+Requires a valid product object in the request body:
+{
+  "name": "Air Fryer",
+  "description": "Smart digital air fryer",
+  "price": 150,
+  "category": "kitchen",
+  "inStock": true
+}
+* PUT /api/products/:id
+Update a product (correct)
+404 if product not found (wrong)
+
+* DELETE /api/products/:id
+Delete a product by ID (correct)
+
+404 if not found (wrong)
+
+* GET /api/error
+-Test route to trigger error handling middleware
+
+Example Error Response
+{
+  "error": "Something went wrong! Please try again later."
+}
+
+## Testing with Postman
+-Set x-api-key: 12345 in Headers
+-Use Body > raw > JSON when sending POST/PUT
+-Use the routes listed above
+
+## File Structure
+server.js
+env.example
+README.md
+node_modules
